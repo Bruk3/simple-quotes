@@ -1,4 +1,3 @@
-elect official python 3 runtime
 FROM python:3
 
 # Creates a directory in /usr/src/app
