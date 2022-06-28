@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-quotes
+  labels:
+    app: simple-quotes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-quotes
+  template:
+    metadata:
+      labels:
+        app: simple-quotes
+    spec:
+      containers:
+      - name: simple-quotes
+        image: gcr.io/PROJECT_ID/IMAGE:TAG
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+---
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: simple-quotes
+  spec:
+    type: LoadBalancer
+    ports:
+    - port: 5000
+      targetPort: 5000
+      protocol: TCP
+    selector:
+      app: simple-quotes
