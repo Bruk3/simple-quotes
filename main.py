@@ -5,6 +5,7 @@ import random
 QUOTES_FILE = "./quotes.txt"  # quote file
 quotes = []  # stores all quotes
 
+
 # a quote
 class Quote(object):
     def __init__(self, quote, by):
@@ -23,6 +24,7 @@ def loadQuotes():
 
 
 app = Flask(__name__)
+
 
 # Gets a random quote
 @app.route("/api/quote")
